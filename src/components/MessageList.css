@@ -2,6 +2,7 @@
 .window--content {
   margin: 8px;
   overflow-y: auto;
+  height: 70%;
   background-color:#FFFFFF;
 }
 

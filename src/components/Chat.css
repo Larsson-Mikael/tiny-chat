@@ -30,18 +30,21 @@
 
 .chat--footer {
   margin: 8px;
-  width: 100%
+  width: fit-content;
 }
 
 .chat--input {
   padding: 6px;
   outline: none;
   border: 0;
+  width: 140px;
+  height: 12px;
 }
 
 .chat--content {
   margin: 8px;
-  overflow-y: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
   height: 70%;
   background-color:#FFFFFF;
 }

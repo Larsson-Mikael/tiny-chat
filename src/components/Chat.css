@@ -43,7 +43,7 @@
 
 .chat--content {
   margin: 8px;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
   height: 70%;
   background-color:#FFFFFF;

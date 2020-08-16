@@ -9,6 +9,7 @@ firebase.initializeApp(firebaseConfig);
 function App() {
   return (
     <div className="App">
+      <h1>TETSETSETSETSETSET</h1>
       <Chat firebase={firebase}></Chat>
     </div>
   );

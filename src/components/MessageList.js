@@ -45,7 +45,6 @@ class MessageList extends React.Component {
     let list = messagePool.map((post) => {
       const valueObj = Object.entries(post)[1][1];
       const entries = Object.entries(valueObj)[0];
-      console.log(`key: ${entries[0]}, message:  ${entries[1]}`)
       return <p key={entries[0]}> >{entries[1]}</p>;
     });
 
@@ -59,7 +58,6 @@ class MessageList extends React.Component {
       <div>
         {loading}
         <div ref={this.messagesEndRef} />
-
       </div>
     )
   }

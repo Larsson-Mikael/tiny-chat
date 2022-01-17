@@ -46,10 +46,8 @@ class Chat extends React.Component {
     const data = {
       [uid]: message,
     }
-
     var messageRef = this.firebase.database().ref('chat/').push();
     messageRef.set(data);
-
   }
 
   _onAuthError(err) {

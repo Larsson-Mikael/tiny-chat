@@ -4,7 +4,7 @@ import MessageList from './MessageList';
 import './Chat.css';
 import 'firebase/auth';
 import 'firebase/database';
-import Utils from '../utils';
+import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -42,7 +42,7 @@ class Chat extends React.Component {
 
 
   sendMessage(message) {
-    var uid = Utils.create_UUID();
+    var uid = uuidv4();
     const data = {
       [uid]: message,
     }

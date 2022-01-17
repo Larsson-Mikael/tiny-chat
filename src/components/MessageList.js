@@ -4,6 +4,8 @@ import 'firebase/database';
 
 class MessageList extends React.Component {
 
+  messagesEndRef = React.createRef();
+
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +17,16 @@ class MessageList extends React.Component {
 
   componentDidMount() {
     this.fetchMessages();
+    this.scrollToBottom();
+  }
+  
+  componentDidUpdate()
+  {
+    this.scrollToBottom();
+  }
+
+  scrollToBottom = () => {
+    this.messagesEndRef.current.scrollIntoView({ behavior: 'smooth' })
   }
 
   fetchMessages = () => {
@@ -28,14 +40,13 @@ class MessageList extends React.Component {
 
   renderList() {
     // render messages
-    var messageArray = Object.entries(this.state.messages);
-    var list = [];
+    let messagePool = Object.entries(this.state.messages["message-pool"]);
 
-    messageArray.forEach((post) => {
-      var opost = Object.entries(post[1]);
-      list.push(opost.map((message, index) => {
-        return <p key={index}> >{message[1]}</p>;
-      }));
+    let list = messagePool.map((post) => {
+      const valueObj = Object.entries(post)[1][1];
+      const entries = Object.entries(valueObj)[0];
+      console.log(`key: ${entries[0]}, message:  ${entries[1]}`)
+      return <p key={entries[0]}> >{entries[1]}</p>;
     });
 
     return list;
@@ -47,6 +58,8 @@ class MessageList extends React.Component {
     return (
       <div>
         {loading}
+        <div ref={this.messagesEndRef} />
+
       </div>
     )
   }
